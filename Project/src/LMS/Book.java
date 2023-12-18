@@ -15,6 +15,7 @@ public class Book {
     private HoldRequestOperations holdRequestsOperations =new HoldRequestOperations();
     static int currentIdNumber = 1;     //This will be unique for every book, since it will be incremented when everytime
                                         //when a book is created
+    // bla bla bla jinyou ugly dog
     
     // hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
   
