@@ -337,9 +337,6 @@ private void displayMatchedBooks(ArrayList<Book> matchedBooks) {
         System.out.print("\n");
     }
 }
-
-    
-    
     
     // View Info of all Books in Library
      public void viewAllBooks()
