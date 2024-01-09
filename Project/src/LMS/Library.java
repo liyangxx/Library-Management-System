@@ -1058,7 +1058,7 @@ public class Library {
                 stmt = con.prepareStatement(template);
 
                 stmt.setInt(1,lib.getPersons().get(i).getID());
-                stmt.setInt(2, ((Clerk)(lib.getPersons().get(i))).deskNo);
+                stmt.setInt(2, ((Clerk)(lib.getPersons().get(i))).getDeskNo());
 
                 stmt.executeUpdate();
             }

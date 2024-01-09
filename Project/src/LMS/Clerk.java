@@ -1,31 +1,30 @@
-
 package LMS;
 
 public class Clerk extends Staff {
   
-    int deskNo;     //Desk Number of the Clerk
-    public static int currentdeskNumber = 0;
+    private int deskNo;  // Desk Number of the Clerk
+    private static int currentDeskNumber = 0;
   
-    public Clerk(int id, String n, String a,int ph, double s,int dk) // para cons.
-    {
-        super(id,n,a,ph,s);
+    public Clerk(int id, String n, String a, int ph, double s, int dk) {
+        super(id, n, a, ph, s);
         
-        if(dk == -1)
-        {
-            deskNo = currentdeskNumber;
-        }
-        else
-        {
-            deskNo=dk;
+        if (dk == -1) {
+            deskNo = currentDeskNumber;
+        } else {
+            deskNo = dk;
         }
         
-        currentdeskNumber++;
+        currentDeskNumber++;
     }
     
+    // Getter for deskNo
+    public int getDeskNo() {
+        return deskNo;
+    }
+
     // Printing Clerk's Info
     @Override
-    public void printInfo()
-    {
+    public void printInfo() {
         super.printInfo();
         System.out.println("Desk Number: " + deskNo);
     }
