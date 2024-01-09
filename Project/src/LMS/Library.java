@@ -273,91 +273,71 @@ public class Library {
     
     
     // Searching Books on basis of title, Subject or Author 
-    public ArrayList<Book> searchForBooks() throws IOException
-    {
-        String choice;
-        String title = "", subject = "", author = "";
-                
-        Scanner sc = new Scanner(System.in);  
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
-        while (true)
-        {
-            System.out.println("\nEnter either '1' or '2' or '3' for search by Title, Subject or Author of Book respectively: ");  
-            choice = sc.next();
-            
-            if (choice.equals("1") || choice.equals("2") || choice.equals("3"))
-                break;
-            else
-                System.out.println("\nWrong Input!");
-        }
+    public ArrayList<Book> searchForBooks() throws IOException {
+    String choice = getUserChoice();
+    String searchInput = getSearchInput(choice);
 
-        if (choice.equals("1"))
-        {
-            System.out.println("\nEnter the Title of the Book: ");              
-            title = reader.readLine();  
-        }
+    ArrayList<Book> matchedBooks = filterBooks(choice, searchInput);
 
-        else if (choice.equals("2"))
-        {
-            System.out.println("\nEnter the Subject of the Book: ");              
-            subject = reader.readLine();  
-        }
-        
-        else
-        {
-            System.out.println("\nEnter the Author of the Book: ");              
-            author = reader.readLine();              
-        }
-        
-        ArrayList<Book> matchedBooks = new ArrayList();
-        
-        //Retrieving all the books which matched the user's search query
-        for(int i = 0; i < booksInLibrary.size(); i++)
-        {
-            Book b = booksInLibrary.get(i);
-            
-            if (choice.equals("1"))
-            { 
-                if (b.getTitle().equals(title))
-                    matchedBooks.add(b);
-            }
-            else if (choice.equals("2"))
-            { 
-                if (b.getSubject().equals(subject))
-                    matchedBooks.add(b);
-            }
-            else
-            {
-                if (b.getAuthor().equals(author))
-                    matchedBooks.add(b);                
-            }
-        }
-        
-        //Printing all the matched Books
-        if (!matchedBooks.isEmpty())
-        {
-            System.out.println("\nThese books are found: \n");
-                        
-            System.out.println("------------------------------------------------------------------------------");            
-            System.out.println("No.\t\tTitle\t\t\tAuthor\t\t\tSubject");
-            System.out.println("------------------------------------------------------------------------------");
-            
-            for (int i = 0; i < matchedBooks.size(); i++)
-            {                      
-                System.out.print(i + "-" + "\t\t");
-                matchedBooks.get(i).printInfo();
-                System.out.print("\n");
-            }
-            
-            return matchedBooks;
-        }
-        else
-        {
-            System.out.println("\nSorry. No Books were found related to your query.");
-            return null;
+    if (!matchedBooks.isEmpty()) {
+        displayMatchedBooks(matchedBooks);
+        return matchedBooks;
+    } else {
+        System.out.println("\nSorry. No Books were found related to your query.");
+        return null;
+    }
+}
+
+private String getUserChoice() {
+    Scanner sc = new Scanner(System.in);
+    while (true) {
+        System.out.println("\nEnter either '1' or '2' or '3' for search by Title, Subject or Author of Book respectively: ");
+        String choice = sc.next();
+        if (choice.equals("1") || choice.equals("2") || choice.equals("3")) {
+            return choice;
+        } else {
+            System.out.println("\nWrong Input!");
         }
     }
+}
+
+private String getSearchInput(String choice) throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    if (choice.equals("1")) {
+        System.out.println("\nEnter the Title of the Book: ");
+    } else if (choice.equals("2")) {
+        System.out.println("\nEnter the Subject of the Book: ");
+    } else {
+        System.out.println("\nEnter the Author of the Book: ");
+    }
+    return reader.readLine();
+}
+
+private ArrayList<Book> filterBooks(String choice, String searchInput) {
+    ArrayList<Book> matchedBooks = new ArrayList<>();
+    for (Book book : booksInLibrary) {
+        if (("1".equals(choice) && book.getTitle().equals(searchInput)) ||
+            ("2".equals(choice) && book.getSubject().equals(searchInput)) ||
+            ("3".equals(choice) && book.getAuthor().equals(searchInput))) {
+            matchedBooks.add(book);
+        }
+    }
+    return matchedBooks;
+}
+
+private void displayMatchedBooks(ArrayList<Book> matchedBooks) {
+    System.out.println("\nThese books are found: \n");
+    System.out.println("------------------------------------------------------------------------------");
+    System.out.println("No.\t\tTitle\t\t\tAuthor\t\t\tSubject");
+    System.out.println("------------------------------------------------------------------------------");
+
+    for (int i = 0; i < matchedBooks.size(); i++) {
+        System.out.print(i + "-" + "\t\t");
+        matchedBooks.get(i).printInfo();
+        System.out.print("\n");
+    }
+}
+
     
     
     
