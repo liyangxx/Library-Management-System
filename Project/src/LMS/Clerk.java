@@ -22,6 +22,11 @@ public class Clerk extends Staff {
         return deskNo;
     }
 
+    // Setter for deskNo
+    public void setDeskNo(int newDeskNo) {
+        deskNo = newDeskNo;
+    }
+
     // Printing Clerk's Info
     @Override
     public void printInfo() {
