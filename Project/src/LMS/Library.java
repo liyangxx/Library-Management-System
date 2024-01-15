@@ -276,9 +276,8 @@ public class Library {
     public ArrayList<Book> searchForBooks() throws IOException
     {
         String choice;
-        String title = "";
-        String subject = "";
-        String author = "";
+        String title = "", subject = "", author = "";
+        
                 
         Scanner sc = new Scanner(System.in);  
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
