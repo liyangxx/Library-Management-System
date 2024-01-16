@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 import java.io.*;
 import java.util.*;

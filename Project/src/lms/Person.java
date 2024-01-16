@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 public abstract class Person 
 {   

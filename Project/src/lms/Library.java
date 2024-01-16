@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 
 // Including Header Files.
@@ -48,7 +48,7 @@ public class Library {
     }
     /*---------------------------------------------------------------------*/
     
-    private Library()   // default cons.
+    Library()   // default cons.
     {
         name = null;
         librarian = null;

@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 // Including Header Files.
 import java.io.*;
@@ -14,7 +14,7 @@ public class Main
         for (int i = 0; i < 20; i++)
             System.out.println();
     }
-
+ 
     // Asking for Input as Choice
     public static int takeInput(int min, int max)
     {    
@@ -362,9 +362,7 @@ public class Main
             {
                 Person person = lib.login();
 
-                if (person == null){}
-                
-                else if (person.getClass().getSimpleName().equals("Borrower"))
+                if (person.getClass().getSimpleName().equals("Borrower"))
                 {                    
                     while (true)    // Way to Borrower's Portal
                     {

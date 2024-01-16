@@ -1,4 +1,4 @@
-package LMS;
+package lms;
 
 import java.util.ArrayList;
 
