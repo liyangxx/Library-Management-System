@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 public abstract class Person 
 {   
@@ -14,11 +14,10 @@ public abstract class Person
 
     public Person(int idNum, String name, String address, int phoneNum)   // para cons.
     {
-        currentIdNumber++;
         
         if(idNum==-1)
         {
-            id = currentIdNumber;
+            id = currentIdNumber + 1;
         }
         else
             id = idNum;

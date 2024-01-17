@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 public class Staff extends Person 
 {

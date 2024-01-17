@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 
 // Including Header Files.
@@ -48,7 +48,7 @@ public class Library {
     }
     /*---------------------------------------------------------------------*/
     
-    private Library()   // default cons.
+    Library()   // default cons.
     {
         name = null;
         librarian = null;
@@ -1182,7 +1182,7 @@ public class Library {
         /* Filling Borrowed Book Table*/
         for(int i=0;i<lib.getBooks().size();i++)
           {
-              if(lib.getBooks().get(i).getIssuedStatus()==true)
+              if(lib.getBooks().get(i).getIssuedStatus())
               {
                   boolean set=true;
                   for(int j=0;j<loans.size() && set ;j++)

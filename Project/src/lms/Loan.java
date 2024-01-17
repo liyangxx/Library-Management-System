@@ -1,5 +1,5 @@
 
-package LMS;
+package lms;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;

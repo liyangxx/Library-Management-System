@@ -1,8 +1,8 @@
 
-package LMS;
+package lms;
 
-import static LMS.Library.librarian;
-import static LMS.Library.persons;
+import static lms.Library.librarian;
+import static lms.Library.persons;
 
 public class Librarian extends Staff {
 
