@@ -541,11 +541,13 @@ public class Library {
             }
         }
         
-        if(librarian!=null && librarian.getID() == id && librarian.getPassword().equals(password))
+        if(librarian!=null)
         {
-            System.out.println("\nLogin Successful");
-            return librarian;
-
+            if (librarian.getID() == id && librarian.getPassword().equals(password))
+            {
+                System.out.println("\nLogin Successful");
+                return librarian;
+            }
         }
         
         System.out.println("\nSorry! Wrong ID or Password");        
